@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  fix-validator-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: whoan/fix-validator-service:buster-slim
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+
