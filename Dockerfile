@@ -1,6 +1,6 @@
-FROM whoan/fix-validator:buster-slim as fix-validator
+FROM docker.pkg.github.com/whoan/fix-validator/fix-validator:buster-slim as fix-validator
 
-FROM whoan/servify:buster-slim as servify
+FROM docker.pkg.github.com/whoan/servify/servify:buster-slim as servify
 
 FROM debian:buster-slim
 
