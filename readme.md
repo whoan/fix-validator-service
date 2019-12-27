@@ -37,3 +37,7 @@ fixv() {
   curl -k -H "Content-Type: application/json" https://fix-validator.whoan.me/ -d"{\"data\": \"$(base64 -w0 "$schema")\"}"
 }
 ```
+
+## License
+
+[MIT](https://github.com/whoan/fix-validator-service/blob/master/LICENSE)
