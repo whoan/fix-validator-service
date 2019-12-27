@@ -24,3 +24,19 @@ curl -H "Content-Type: application/json" http://0.0.0.0:4000/ -d"{\"data\": \"$(
 ```json
 {"status":1,"stderr":"Configuration failed: Field named MyField defined multiple times\n","stdout":""}
 ```
+
+### Using public service
+
+```bash
+curl -k -H "Content-Type: application/json" https://fix-validator.whoan.me/ -d"{\"data\": \"$(base64 -w0 your_schema.xml)\"}"
+```
+
+### Create a handy command to verify schemas
+
+```bash
+fixv() {
+  local schema
+  schema="${1:?PLease provide a FIX schema file to validate}"
+  curl -k -H "Content-Type: application/json" https://fix-validator.whoan.me/ -d"{\"data\": \"$(base64 -w0 "$schema")\"}"
+}
+```
