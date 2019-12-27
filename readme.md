@@ -7,7 +7,7 @@ Docker image to run [fix-validator](https://github.com/whoan/fix-validator) as a
 - Run the docker image exposing port 4000:
 
     ```bash
-    docker run --rm -p "4000:4000" docker.pkg.github.com/whoan/fix-validator-service/fix-validator-service:buster-slim
+    docker run -ti --rm -p "4000:4000" docker.pkg.github.com/whoan/fix-validator-service/fix-validator-service:buster-slim
     ```
 
 - Make a POST request with a FIX schema as the data value (in base64) of the JSON payload:
