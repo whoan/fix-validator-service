@@ -13,4 +13,5 @@ validate_schema() {
   fix-validator "$@"
 }
 
-validate_schema "$@"
+errors=$(validate_schema "$@" 2>&1)
+echo -n $errors | sed "s_$1:__g" >&2
