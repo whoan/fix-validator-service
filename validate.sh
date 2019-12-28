@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
-if fix-validator "$@"; then
-  exit
-fi
+validate_schema() {
+  if ! [[ $(file "$1") =~ XML ]]; then
+    echo "Schema should be an XML" >&2
+    return 1
+  fi
 
-if [[ $(file "$1") =~ XML ]]; then
-  xmllint --noout "$1"
-else
-  echo "Schema should be an XML" >&2
-fi
+  if ! xmllint --noout "$1"; then
+    return 1
+  fi
 
-exit 1
+  fix-validator "$@"
+}
+
+validate_schema "$@"
