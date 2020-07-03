@@ -25,7 +25,7 @@ Docker image to run [fix-validator](https://github.com/whoan/fix-validator) as a
 ### Use public service
 
 ```bash
-curl -k -H "Content-Type: application/json" https://fix-validator.whoan.me/ -d"{\"data\": \"$(base64 -w0 your_schema.xml)\"}"
+curl -k -H "Content-Type: application/json" https://fix-validator.whoan.online/ -d"{\"data\": \"$(base64 -w0 your_schema.xml)\"}"
 ```
 
 ### Create a handy command to verify schemas
@@ -34,7 +34,7 @@ curl -k -H "Content-Type: application/json" https://fix-validator.whoan.me/ -d"{
 fixv() {
   local schema
   schema="${1:?PLease provide a FIX schema file to validate}"
-  curl -k -H "Content-Type: application/json" https://fix-validator.whoan.me/ -d"{\"data\": \"$(base64 -w0 "$schema")\"}"
+  curl -k -H "Content-Type: application/json" https://fix-validator.whoan.online/ -d"{\"data\": \"$(base64 -w0 "$schema")\"}"
 }
 ```
 
