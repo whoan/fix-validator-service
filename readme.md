@@ -4,16 +4,16 @@ Docker image to run [fix-validator](https://github.com/whoan/fix-validator) as a
 
 ### Run it locally
 
-- Run the docker image exposing port 4000:
+- Run the docker image exposing port 8080:
 
   ```bash
-  docker run -ti --rm -p "4000:4000" docker.pkg.github.com/whoan/fix-validator-service/fix-validator-service:buster-slim
+  docker run -ti --rm -p "8080:8080" docker.pkg.github.com/whoan/fix-validator-service/fix-validator-service:buster-slim
   ```
 
 - Make a POST request with a FIX schema as the data value (in base64) of the JSON payload:
 
   ```bash
-  curl -H "Content-Type: application/json" http://0.0.0.0:4000/ -d"{\"data\": \"$(base64 -w0 your_schema.xml)\"}"
+  curl -H "Content-Type: application/json" http://0.0.0.0:8080/ -d"{\"data\": \"$(base64 -w0 your_schema.xml)\"}"
   ```
 
 - Get a success|error response:
