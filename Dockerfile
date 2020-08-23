@@ -16,4 +16,6 @@ COPY --from=servify /usr/bin/servify /usr/bin/servify
 
 COPY validate.sh /app/validate.sh
 
+EXPOSE 8080
+
 ENTRYPOINT servify --method=POST --base64 'bash /app/validate.sh'
